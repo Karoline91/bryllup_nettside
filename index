@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8" />
+  <title>Vi gifter oss</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #fff3f3;
+      text-align: center;
+      padding: 60px;
+    }
+    h1 {
+      color: #b85c5c;
+    }
+  </style>
+</head>
+<body>
+  <h1>Velkommen til vårt bryllup!</h1>
+  <p>Vi gifter oss 13. juni 2026 i Oslo ❤️</p>
+  <p>Mer informasjon kommer snart!</p>
+</body>
+</html>
