@@ -2,23 +2,64 @@
 <html lang="no">
 <head>
   <meta charset="UTF-8" />
-  <title>Vårt Bryllup</title>
-  <link rel="stylesheet" href="styles.css" />
+  <title>Karoline & Torkil</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Georgia', serif;
+      background-color: #b8d4f0;
+      color: #2c3e50;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-bottom: 0.2em;
+    }
+
+    p {
+      font-size: 1.2em;
+      max-width: 600px;
+      margin-bottom: 0.5em;
+    }
+
+    .flowers {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 300px;
+      opacity: 0.2;
+      z-index: 0;
+    }
+
+    main {
+      z-index: 1;
+      padding: 2em;
+    }
+
+    footer {
+      margin-top: 40px;
+      font-size: 0.9em;
+      color: #555;
+      z-index: 1;
+    }
+  </style>
 </head>
 <body>
-  <img class="flowers" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Simple_flower_sketch.svg/2048px-Simple_flower_sketch.svg.png" alt="" height="200" />
-  <!-- Blomsterpynt i toppen -->
-  <img class="flowers" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Simple_flower_sketch.svg/2048px-Simple_flower_sketch.svg.png" alt="Blomsterpynt" />
+
+  <!-- Blomsterpynt -->
+  <img class="flowers" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Floral_design_element.svg/512px-Floral_design_element.svg.png" alt="Blomsterpynt" />
 
   <main>
     <h1>Karoline & Torkil</h1>
-    <p>Vi gifter oss 13. juni 2026 💍</p>
-    <p>Vi gleder oss til å feire dagen sammen med dere.<br>Mer informasjon kommer snart!</p>
-  </main>
-
-  <footer>
-    © Karoline & Torkil 2026
-  </footer>
-
-</body>
+    <p>
 
