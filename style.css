@@ -1,0 +1,165 @@
+body {
+  margin: 0;
+  font-family: 'Georgia', 'Segoe UI', sans-serif;
+  background: #fdfcf7 url('paviljongen.jpg');
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  filter: grayscale(1);
+  color: #2c3e50;
+  text-align: center;
+  min-height: 100vh;
+}
+
+nav {
+  background: rgba(255,255,255,0.7);
+  padding: 2.2em 0 2.2em 0;
+  display: flex;
+  justify-content: center;
+  gap: 3.5em;
+  font-weight: normal;
+  position: sticky;
+  top: 0;
+  border-bottom: none;
+  box-shadow: none;
+  z-index: 10;
+  border-radius: 0 0 18px 18px;
+  margin-bottom: 3em;
+}
+
+nav a {
+  text-decoration: none;
+  color: #3d5c4a;
+  font-size: 1.18em;
+  letter-spacing: 2.5px;
+  padding: 0.5em 2.2em 0.5em 2.2em;
+  border-radius: 0;
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-family: 'Georgia', serif;
+  font-weight: normal;
+  box-shadow: none;
+  position: relative;
+  transition: color 0.2s, border-bottom 0.2s;
+  border-bottom: 2.5px solid transparent;
+  text-transform: uppercase;
+  background: none;
+}
+
+nav a.active, nav a:focus {
+  color: #bfa77a;
+  border-bottom: 2.5px solid #bfa77a;
+  background: none;
+  box-shadow: none;
+}
+
+nav a:hover {
+  color: #bfa77a;
+  border-bottom: 2.5px solid #bfa77a;
+  background: none;
+}
+
+.header-names {
+  font-family: 'Great Vibes', cursive, 'Georgia', serif;
+  font-size: 3.2em;
+  color: #bfa77a;
+  margin-top: 2.5em;
+  margin-bottom: 0.2em;
+  letter-spacing: 2px;
+  text-shadow: 0 2px 16px #fffef9, 0 1px 0 #bfa77a44;
+}
+
+main {
+  padding: 3.5em 1.5em 2.5em 1.5em;
+  background: rgba(255,255,255,0.82);
+  margin: 2.5em auto 0 auto;
+  max-width: 520px;
+  border-radius: 28px;
+  border: none;
+  box-shadow: 0 8px 32px rgba(60,60,60,0.10);
+  min-height: 220px;
+}
+
+h1 {
+  color: #3d5c4a;
+  font-size: 1.7em;
+  margin-bottom: 0.2em;
+  letter-spacing: 1px;
+  font-family: 'Georgia', serif;
+  font-weight: normal;
+}
+
+.date {
+  color: #bfa77a;
+  font-size: 1.15em;
+  font-family: 'Georgia', serif;
+  margin-bottom: 0.5em;
+}
+
+p {
+  color: #4d6b4a;
+  font-size: 1.13em;
+  margin-top: 0.7em;
+  margin-bottom: 0.7em;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+section {
+  margin-bottom: 1.5em;
+}
+
+.info-list {
+  list-style: none;
+  padding: 0;
+  margin: 1.5em 0 1em 0;
+  color: #3d5c4a;
+  font-size: 1.08em;
+}
+
+.info-list li {
+  margin-bottom: 0.7em;
+}
+
+.rsvp {
+  background: #eaf5e2;
+  border-radius: 12px;
+  padding: 1em 0.5em;
+  margin: 1.5em 0;
+  color: #2c3e50;
+  font-size: 1.08em;
+}
+
+footer {
+  margin-top: 50px;
+  font-size: 1em;
+  color: #4d6b4a;
+  background: none;
+  padding: 1em 0 1em 0;
+  border-top: 1.5px solid #bcd7b0;
+  border-radius: 0 0 18px 18px;
+  box-shadow: none;
+  letter-spacing: 0.5px;
+}
+
+.bottom-banner {
+  margin-top: 1.5em;
+  padding: 1em 0 0.5em 0;
+  background: rgba(255,255,255,0.85);
+  color: #bfa77a;
+  font-family: 'Georgia', serif;
+  font-size: 1.15em;
+  letter-spacing: 1.5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5em;
+  border-top: 1px solid #e5e1d8;
+  border-radius: 0 0 18px 18px;
+}
+.banner-divider {
+  color: #bfa77a;
+  font-size: 1.3em;
+  margin: 0 0.5em;
+}
