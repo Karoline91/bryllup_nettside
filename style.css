@@ -1,38 +1,63 @@
 body {
   margin: 0;
-  font-family: 'Georgia', 'Segoe UI', sans-serif;
-  background: #fdfcf7 url('paviljongen.jpg');
-  background-size: cover;
-  background-position: center top;
-  background-repeat: no-repeat;
-  filter: grayscale(1);
-  color: #2c3e50;
+  font-family: 'EB Garamond', serif;
+  background: #fdfcf7;
+  color: #111;
   text-align: center;
   min-height: 100vh;
 }
 
+.kogt-img {
+  display: block;
+  margin: 2.5em auto 0 auto;
+  max-width: 340px;
+  width: 90vw;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(60,60,60,0.10);
+}
+
+.header-names {
+  font-family: 'Great Vibes', cursive, 'Georgia', serif;
+  font-size: 4.2em;
+  color: #bfa77a;
+  margin-top: 7vh;
+  margin-bottom: 0.1em;
+  letter-spacing: 2px;
+  text-shadow: 0 2px 16px #fffef9, 0 1px 0 #bfa77a44;
+  font-weight: normal;
+}
+
+.big-date {
+  font-family: 'Georgia', serif;
+  font-size: 2em;
+  color: #2c3e50;
+  margin-bottom: 2.5em;
+  letter-spacing: 2px;
+  font-weight: 600;
+}
+
 nav {
-  background: rgba(255,255,255,0.7);
-  padding: 2.2em 0 2.2em 0;
+  background: #fffef9;
+  padding: 0.5rem 0 0.5rem 0;
   display: flex;
   justify-content: center;
   gap: 3.5em;
   font-weight: normal;
   position: sticky;
   top: 0;
-  border-bottom: none;
-  box-shadow: none;
+  border-bottom: 1.5px solid #e5e1d8;
+  box-shadow: 0 2px 12px rgba(60,60,60,0.04);
   z-index: 10;
   border-radius: 0 0 18px 18px;
-  margin-bottom: 3em;
+  margin-bottom: 0.5rem;
 }
 
 nav a {
   text-decoration: none;
-  color: #3d5c4a;
-  font-size: 1.18em;
-  letter-spacing: 2.5px;
-  padding: 0.5em 2.2em 0.5em 2.2em;
+  color: #111;
+  font-size: 1rem;
+  letter-spacing: 0.01em;
+  padding: 0.2rem 1rem;
   border-radius: 0;
   background: none;
   border: none;
@@ -49,8 +74,8 @@ nav a {
 }
 
 nav a.active, nav a:focus {
-  color: #bfa77a;
-  border-bottom: 2.5px solid #bfa77a;
+  color: #111 !important;
+  border-bottom: 2px solid #111 !important;
   background: none;
   box-shadow: none;
 }
@@ -61,30 +86,20 @@ nav a:hover {
   background: none;
 }
 
-.header-names {
-  font-family: 'Great Vibes', cursive, 'Georgia', serif;
-  font-size: 3.2em;
-  color: #bfa77a;
-  margin-top: 2.5em;
-  margin-bottom: 0.2em;
-  letter-spacing: 2px;
-  text-shadow: 0 2px 16px #fffef9, 0 1px 0 #bfa77a44;
-}
-
 main {
-  padding: 3.5em 1.5em 2.5em 1.5em;
-  background: rgba(255,255,255,0.82);
-  margin: 2.5em auto 0 auto;
-  max-width: 520px;
-  border-radius: 28px;
+  padding: 0 1.5em 2.5em 1.5em;
+  background: none;
+  margin: 0 auto 0 auto;
+  max-width: 600px;
+  border-radius: 0;
   border: none;
-  box-shadow: 0 8px 32px rgba(60,60,60,0.10);
+  box-shadow: none;
   min-height: 220px;
 }
 
 h1 {
-  color: #3d5c4a;
-  font-size: 1.7em;
+  color: #2c3e50;
+  font-size: 2.2em;
   margin-bottom: 0.2em;
   letter-spacing: 1px;
   font-family: 'Georgia', serif;
@@ -92,53 +107,17 @@ h1 {
 }
 
 .date {
-  color: #bfa77a;
-  font-size: 1.15em;
-  font-family: 'Georgia', serif;
-  margin-bottom: 0.5em;
-}
-
-p {
-  color: #4d6b4a;
-  font-size: 1.13em;
-  margin-top: 0.7em;
-  margin-bottom: 0.7em;
-  font-family: 'Segoe UI', sans-serif;
-}
-
-section {
-  margin-bottom: 1.5em;
-}
-
-.info-list {
-  list-style: none;
-  padding: 0;
-  margin: 1.5em 0 1em 0;
-  color: #3d5c4a;
-  font-size: 1.08em;
-}
-
-.info-list li {
-  margin-bottom: 0.7em;
-}
-
-.rsvp {
-  background: #eaf5e2;
-  border-radius: 12px;
-  padding: 1em 0.5em;
-  margin: 1.5em 0;
-  color: #2c3e50;
-  font-size: 1.08em;
+  display: none;
 }
 
 footer {
-  margin-top: 50px;
+  margin-top: 60px;
   font-size: 1em;
-  color: #4d6b4a;
+  color: #111 !important;
   background: none;
   padding: 1em 0 1em 0;
-  border-top: 1.5px solid #bcd7b0;
-  border-radius: 0 0 18px 18px;
+  border-top: none;
+  border-radius: 0;
   box-shadow: none;
   letter-spacing: 0.5px;
 }
@@ -158,8 +137,36 @@ footer {
   border-top: 1px solid #e5e1d8;
   border-radius: 0 0 18px 18px;
 }
-.banner-divider {
+
+.top-banner {
+  background: #fffef9;
+  padding: 2.2em 0 1.2em 0;
+  text-align: center;
+  border-bottom: 1.5px solid #e5e1d8;
+  box-shadow: 0 2px 12px rgba(60,60,60,0.04);
+  font-size: 1.1rem;
+}
+
+.top-names {
+  font-family: 'EB Garamond', serif;
+  font-size: 2.2em;
+  color: #111 !important;
+  letter-spacing: 2px;
+  margin-bottom: 0.2em;
+  font-weight: 600;
+}
+
+.top-date {
+  font-family: 'EB Garamond', serif;
+  font-size: 1.25em;
+  color: #111 !important;
+  letter-spacing: 1.5px;
+  margin-bottom: 0.2em;
+  font-weight: 600;
+}
+
+.star {
   color: #bfa77a;
-  font-size: 1.3em;
-  margin: 0 0.5em;
+  font-size: 1.1em;
+  margin: 0 0.3em;
 }
