@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>RSVP Test</title>
+</head>
+<body>
+    <h1>RSVP Test Form</h1>
+    <form id="testForm">
+        <input type="text" id="navn" placeholder="Your Name" required>
+        <input type="email" id="epost" placeholder="Your Email" required>
+        <label>
+            <input type="radio" name="kommer" value="ja" required> Yes
+        </label>
+        <label>
+            <input type="radio" name="kommer" value="nei" required> No
+        </label>
+        <button type="submit">Test Submit</button>
+    </form>
+    
+    <div id="result"></div>
+    
+    <script>
+        // Replace with your actual Google Apps Script URL
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzBVOImkBuqRMZnE1fT5G6QgQrMEwTkXtzLMzZ5XGjNEr8WMX9ru00Efu0tJKrV812QnA/exec';
+        
+        document.getElementById('testForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = 'Testing...';
+            
+            const data = {
+                tidspunkt: new Date().toLocaleString('no-NO'),
+                navn: document.getElementById('navn').value,
+                epost: document.getElementById('epost').value,
+                kommer: document.querySelector('input[name="kommer"]:checked').value
+            };
+            
+            try {
+                const response = await fetch(SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                });
+                
+                resultDiv.innerHTML = '✅ Success! Check your Google Sheet for the data.';
+                resultDiv.style.color = 'green';
+                
+            } catch (error) {
+                resultDiv.innerHTML = '❌ Error: ' + error.message;
+                resultDiv.style.color = 'red';
+                console.error('Error:', error);
+            }
+        });
+    </script>
+</body>
+</html> 

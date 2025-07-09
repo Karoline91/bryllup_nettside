@@ -1,3 +1,8 @@
+/* Mobile-first responsive design */
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: 'EB Garamond', serif;
@@ -5,6 +10,12 @@ body {
   color: #111;
   text-align: center;
   min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Prevent scrolling when mobile menu is open */
+body.nav-open {
+  overflow: hidden;
 }
 
 .kogt-img {
@@ -18,9 +29,9 @@ body {
 
 .header-names {
   font-family: 'Great Vibes', cursive, 'Georgia', serif;
-  font-size: 4.2em;
+  font-size: 2.5em;
   color: #bfa77a;
-  margin-top: 7vh;
+  margin-top: 5vh;
   margin-bottom: 0.1em;
   letter-spacing: 2px;
   text-shadow: 0 2px 16px #fffef9, 0 1px 0 #bfa77a44;
@@ -29,67 +40,136 @@ body {
 
 .big-date {
   font-family: 'Georgia', serif;
-  font-size: 2em;
+  font-size: 1.5em;
   color: #2c3e50;
   margin-bottom: 2.5em;
   letter-spacing: 2px;
   font-weight: 600;
 }
 
+/* Top banner - mobile first */
+.top-banner {
+  background: #fffef9;
+  padding: 1.5em 1em 1em 1em;
+  text-align: center;
+  border-bottom: 1.5px solid #e5e1d8;
+  box-shadow: 0 2px 12px rgba(60,60,60,0.04);
+  font-size: 1rem;
+}
+
+.top-names {
+  font-family: 'EB Garamond', serif;
+  font-size: 1.8em;
+  color: #111 !important;
+  letter-spacing: 1px;
+  margin-bottom: 0.2em;
+  font-weight: 600;
+}
+
+.top-date {
+  font-family: 'EB Garamond', serif;
+  font-size: 1.1em;
+  color: #111 !important;
+  letter-spacing: 1px;
+  margin-bottom: 0.2em;
+  font-weight: 600;
+}
+
+/* Navigation - mobile first */
 nav {
   background: #fffef9;
-  padding: 0.5rem 0 0.5rem 0;
-  display: flex;
-  justify-content: center;
-  gap: 3.5em;
-  font-weight: normal;
+  padding: 0.8rem 1rem;
   position: sticky;
   top: 0;
   border-bottom: 1.5px solid #e5e1d8;
   box-shadow: 0 2px 12px rgba(60,60,60,0.04);
-  z-index: 10;
-  border-radius: 0 0 18px 18px;
+  z-index: 100;
   margin-bottom: 0.5rem;
 }
 
-nav a {
-  text-decoration: none;
-  color: #111;
-  font-size: 1rem;
-  letter-spacing: 0.01em;
-  padding: 0.2rem 1rem;
-  border-radius: 0;
+/* Mobile menu toggle button */
+.mobile-menu-toggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 22px;
   background: none;
   border: none;
-  outline: none;
   cursor: pointer;
+  padding: 0;
+  margin-left: auto;
+  margin-right: 1rem;
+}
+
+.mobile-menu-toggle span {
+  width: 100%;
+  height: 3px;
+  background: #111;
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+.mobile-menu-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(7px, 7px);
+}
+
+.mobile-menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.mobile-menu-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* Navigation links */
+.nav-links {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #fffef9;
+  border-bottom: 1.5px solid #e5e1d8;
+  box-shadow: 0 4px 12px rgba(60,60,60,0.08);
+  padding: 1rem 0;
+  z-index: 99;
+}
+
+.nav-links.active {
+  display: block;
+}
+
+.nav-links a {
+  display: block;
+  text-decoration: none;
+  color: #111;
+  font-size: 1.1rem;
+  letter-spacing: 0.01em;
+  padding: 0.8rem 1.5rem;
   font-family: 'Georgia', serif;
   font-weight: normal;
-  box-shadow: none;
-  position: relative;
-  transition: color 0.2s, border-bottom 0.2s;
-  border-bottom: 2.5px solid transparent;
+  transition: all 0.2s;
   text-transform: uppercase;
-  background: none;
+  border-bottom: 1px solid transparent;
 }
 
-nav a.active, nav a:focus {
-  color: #111 !important;
-  border-bottom: 2px solid #111 !important;
-  background: none;
-  box-shadow: none;
-}
-
-nav a:hover {
+.nav-links a:hover {
   color: #bfa77a;
-  border-bottom: 2.5px solid #bfa77a;
-  background: none;
+  background: rgba(191, 167, 122, 0.05);
 }
 
+.nav-links a.active {
+  color: #bfa77a !important;
+  background: rgba(191, 167, 122, 0.1);
+  border-left: 4px solid #bfa77a;
+}
+
+/* Main content */
 main {
-  padding: 0 1.5em 2.5em 1.5em;
+  padding: 0 1rem 2.5em 1rem;
   background: none;
-  margin: 0 auto 0 auto;
+  margin: 0 auto;
   max-width: 600px;
   border-radius: 0;
   border: none;
@@ -99,11 +179,12 @@ main {
 
 h1 {
   color: #2c3e50;
-  font-size: 2.2em;
-  margin-bottom: 0.2em;
+  font-size: 1.8em;
+  margin-bottom: 0.5em;
   letter-spacing: 1px;
   font-family: 'Georgia', serif;
   font-weight: normal;
+  padding: 0 0.5rem;
 }
 
 /* Hardcode all headers to be black on all pages */
@@ -120,7 +201,7 @@ footer {
   font-size: 1em;
   color: #111 !important;
   background: none;
-  padding: 1em 0 1em 0;
+  padding: 2em 1rem 1em 1rem;
   border-top: none;
   border-radius: 0;
   box-shadow: none;
@@ -129,49 +210,220 @@ footer {
 
 .bottom-banner {
   margin-top: 1.5em;
-  padding: 1em 0 0.5em 0;
+  padding: 1em 1rem 0.5em 1rem;
   background: rgba(255,255,255,0.85);
   color: #bfa77a;
   font-family: 'Georgia', serif;
-  font-size: 1.15em;
-  letter-spacing: 1.5px;
+  font-size: 1em;
+  letter-spacing: 1px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 1.5em;
+  gap: 0.5em;
   border-top: 1px solid #e5e1d8;
   border-radius: 0 0 18px 18px;
-}
-
-.top-banner {
-  background: #fffef9;
-  padding: 2.2em 0 1.2em 0;
-  text-align: center;
-  border-bottom: 1.5px solid #e5e1d8;
-  box-shadow: 0 2px 12px rgba(60,60,60,0.04);
-  font-size: 1.1rem;
-}
-
-.top-names {
-  font-family: 'EB Garamond', serif;
-  font-size: 2.2em;
-  color: #111 !important;
-  letter-spacing: 2px;
-  margin-bottom: 0.2em;
-  font-weight: 600;
-}
-
-.top-date {
-  font-family: 'EB Garamond', serif;
-  font-size: 1.25em;
-  color: #111 !important;
-  letter-spacing: 1.5px;
-  margin-bottom: 0.2em;
-  font-weight: 600;
 }
 
 .star {
   color: #bfa77a;
   font-size: 1.1em;
   margin: 0 0.3em;
+}
+
+/* Responsive images */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.centered-image img {
+  max-width: min(350px, 90vw);
+  border-radius: 12px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+}
+
+/* Responsive content containers */
+.frontpage-info {
+  color: #111; 
+  text-align: center; 
+  max-width: 500px; 
+  margin: 2rem auto 0 auto; 
+  font-size: 1.1rem;
+  padding: 0 1rem;
+}
+
+.wedding-program {
+  background: #faf7f2; 
+  border-radius: 14px; 
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04); 
+  padding: 1.5rem; 
+  margin: 0 0 2rem 0;
+}
+
+/* Tablet styles */
+@media (min-width: 768px) {
+  .header-names {
+    font-size: 3.5em;
+    margin-top: 6vh;
+  }
+  
+  .big-date {
+    font-size: 1.8em;
+  }
+  
+  .top-banner {
+    padding: 2em 0 1.2em 0;
+  }
+  
+  .top-names {
+    font-size: 2.2em;
+    letter-spacing: 2px;
+  }
+  
+  .top-date {
+    font-size: 1.25em;
+    letter-spacing: 1.5px;
+  }
+  
+  /* Show desktop navigation */
+  .mobile-menu-toggle {
+    display: none;
+  }
+  
+  .nav-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    position: static;
+    background: none;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+  }
+  
+  .nav-links a {
+    display: inline-block;
+    padding: 0.4rem 1rem;
+    font-size: 1rem;
+    border-bottom: 2.5px solid transparent;
+    border-left: none;
+    background: none !important;
+  }
+  
+  .nav-links a:hover {
+    color: #bfa77a;
+    border-bottom: 2.5px solid #bfa77a;
+    background: none !important;
+  }
+  
+  .nav-links a.active {
+    color: #111 !important;
+    border-bottom: 2px solid #111 !important;
+    background: none !important;
+    border-left: none;
+  }
+  
+  main {
+    padding: 0 1.5em 2.5em 1.5em;
+  }
+  
+  h1 {
+    font-size: 2.2em;
+    margin-bottom: 0.2em;
+  }
+  
+  .bottom-banner {
+    flex-direction: row;
+    gap: 1.5em;
+    font-size: 1.15em;
+    letter-spacing: 1.5px;
+  }
+  
+  .wedding-program {
+    padding: 2.5rem 1.5rem 2rem 1.5rem;
+  }
+}
+
+/* Desktop styles */
+@media (min-width: 1024px) {
+  .header-names {
+    font-size: 4.2em;
+    margin-top: 7vh;
+  }
+  
+  .big-date {
+    font-size: 2em;
+  }
+  
+  .nav-links {
+    gap: 3.5em;
+  }
+  
+  .nav-links a {
+    padding: 0.2rem 1rem;
+  }
+}
+
+/* Mobile-specific enhancements */
+@media (max-width: 480px) {
+  .header-names {
+    font-size: 2.2em;
+    margin-top: 4vh;
+  }
+  
+  .big-date {
+    font-size: 1.3em;
+  }
+  
+  .top-names {
+    font-size: 1.6em;
+  }
+  
+  .top-date {
+    font-size: 1em;
+  }
+  
+  h1 {
+    font-size: 1.6em;
+    padding: 0 0.25rem;
+  }
+  
+  main {
+    padding: 0 0.75rem 2em 0.75rem;
+  }
+  
+  .wedding-program {
+    padding: 1rem;
+    margin: 0 0 1.5rem 0;
+  }
+  
+  .frontpage-info {
+    font-size: 1rem;
+    padding: 0 0.5rem;
+  }
+  
+  footer {
+    padding: 1.5em 0.5rem 1em 0.5rem;
+  }
+  
+  /* Mobile-specific adjustments for easter egg game */
+  .interactive-map {
+    height: 400px;
+  }
+  
+  .modal-content {
+    width: 95%;
+    margin: 25% auto;
+    padding: 20px;
+  }
+  
+  .map-star {
+    font-size: 20px;
+  }
+  
+  .skam-logo {
+    font-size: 14px;
+    padding: 3px 6px;
+  }
 }

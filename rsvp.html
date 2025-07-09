@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8" />
+  <title>Karoline & Torkil – RSVP</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="RSVP til bryllupet til Karoline & Torkil – 13. juni 2026 på Månefisken og Torshovparken paviljongen." />
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .rsvp-container {
+      max-width: 600px;
+      margin: 2rem auto;
+      padding: 0 1.5rem;
+    }
+
+    .rsvp-form {
+      background: #fffef9;
+      border: 2px solid #e5e1d8;
+      border-radius: 12px;
+      padding: 2.5rem;
+      margin: 2rem 0;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      color: #111;
+      font-family: 'EB Garamond', serif;
+      font-size: 1.1em;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.8rem;
+      border: 2px solid #e5e1d8;
+      border-radius: 6px;
+      font-family: 'EB Garamond', serif;
+      font-size: 1em;
+      background: white;
+      box-sizing: border-box;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: #bfa77a;
+      box-shadow: 0 0 0 3px rgba(191, 167, 122, 0.1);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .radio-group {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 0.5rem;
+    }
+
+    .radio-option {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      cursor: pointer;
+    }
+
+    .radio-option input[type="radio"] {
+      width: auto;
+      margin: 0;
+    }
+
+    .submit-btn {
+      background: #bfa77a;
+      color: white;
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 8px;
+      font-family: 'EB Garamond', serif;
+      font-size: 1.1em;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      width: 100%;
+      margin-top: 1rem;
+    }
+
+    .submit-btn:hover {
+      background: #a8956a;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(191, 167, 122, 0.3);
+    }
+
+    .submit-btn:disabled {
+      background: #ccc;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+
+    .message {
+      padding: 1rem;
+      border-radius: 6px;
+      margin-bottom: 1rem;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .message.success {
+      background: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+    }
+
+    .message.error {
+      background: #f8d7da;
+      color: #721c24;
+      border: 1px solid #f5c6cb;
+    }
+
+    .loading {
+      opacity: 0.6;
+      pointer-events: none;
+    }
+
+    .required {
+      color: #bfa77a;
+    }
+
+    .info-box {
+      background: #f8f9fa;
+      border: 1px solid #e5e1d8;
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      font-size: 0.95em;
+      color: #666;
+    }
+
+    @media (max-width: 768px) {
+      .rsvp-container {
+        padding: 0 1rem;
+      }
+      
+      .rsvp-form {
+        padding: 1.5rem;
+        margin: 1rem 0;
+      }
+      
+      .radio-group {
+        flex-direction: column;
+        gap: 0.8rem;
+      }
+      
+      .form-group input,
+      .form-group select,
+      .form-group textarea {
+        font-size: 16px; /* Prevents zoom on iOS */
+      }
+      
+      .submit-btn {
+        font-size: 1.2em;
+        padding: 1.2rem 2rem;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .rsvp-form {
+        padding: 1rem;
+      }
+      
+      .info-box {
+        padding: 1rem;
+        margin: 1rem 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <script src="shared.js"></script>
+
+  <div class="rsvp-container">
+    <h1 style="text-align: center; color: #111; font-family: 'Georgia', serif; margin-bottom: 1rem;">RSVP</h1>
+    <p style="text-align: center; color: #666; font-size: 1.1em; margin-bottom: 2rem;">
+      Vi gleder oss til å feire sammen med dere! Gi oss beskjed om dere kan komme.
+    </p>
+
+    <div id="messageContainer"></div>
+
+    <form id="rsvpForm" class="rsvp-form">
+      <div class="form-group">
+        <label for="navn">Fullt navn <span class="required">*</span></label>
+        <input type="text" id="navn" name="navn" required>
+      </div>
+
+      <div class="form-group">
+        <label for="epost">E-post <span class="required">*</span></label>
+        <input type="email" id="epost" name="epost" required>
+      </div>
+
+      <div class="form-group">
+        <label for="telefon">Telefonnummer</label>
+        <input type="tel" id="telefon" name="telefon">
+      </div>
+
+      <div class="form-group">
+        <label>Kan du komme? <span class="required">*</span></label>
+        <div class="radio-group">
+          <label class="radio-option">
+            <input type="radio" name="kommer" value="ja" required>
+            <span>Ja, jeg kommer!</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="kommer" value="nei" required>
+            <span>Nei, kan dessverre ikke</span>
+          </label>
+        </div>
+      </div>
+
+      <div id="attendingFields" style="display: none;">
+        <div class="form-group">
+          <label for="antallPersoner">Hvor mange personer? <span class="required">*</span></label>
+          <select id="antallPersoner" name="antallPersoner">
+            <option value="">Velg antall</option>
+            <option value="1">1 person</option>
+            <option value="2">2 personer</option>
+            <option value="3">3 personer</option>
+            <option value="4">4 personer</option>
+            <option value="5">5+ personer</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="navnPaFolge">Navn på eventuelle følgesvenner</label>
+          <input type="text" id="navnPaFolge" name="navnPaFolge" placeholder="F.eks: Anne Hansen, Per Olsen">
+        </div>
+
+        <div class="form-group">
+          <label>Hvilke deler av bryllupet kommer du på?</label>
+          <div class="radio-group">
+            <label class="radio-option">
+              <input type="radio" name="delerAvBryllup" value="begge" checked>
+              <span>Både vielse og fest</span>
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="delerAvBryllup" value="vielse">
+              <span>Kun vielse</span>
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="delerAvBryllup" value="fest">
+              <span>Kun fest</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="allergier">Allergier og matpreferanser</label>
+          <textarea id="allergier" name="allergier" placeholder="Fortell oss om eventuelle allergier, vegetarianer, veganer, etc."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="overnattingshjelp">Trenger du hjelp med overnatting?</label>
+          <div class="radio-group">
+            <label class="radio-option">
+              <input type="radio" name="overnattingshjelp" value="nei" checked>
+              <span>Nei takk</span>
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="overnattingshjelp" value="ja">
+              <span>Ja, gjerne tips!</span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="kommentarer">Kommentarer eller hilsener</label>
+        <textarea id="kommentarer" name="kommentarer" placeholder="Eventuelle kommentarer, spørsmål eller hilsener til oss..."></textarea>
+      </div>
+
+      <div class="info-box">
+        <strong>Svarfrist:</strong> Vi setter pris på om du kan svare innen 1. april 2026, så vi kan gi beskjed til catereren i tide.
+      </div>
+
+      <button type="submit" class="submit-btn" id="submitBtn">Send svar</button>
+    </form>
+  </div>
+
+  <footer>
+    © Karoline & Torkil 2026
+  </footer>
+
+  <script>
+    // RSVP Form Handler
+    const form = document.getElementById('rsvpForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const messageContainer = document.getElementById('messageContainer');
+    const attendingFields = document.getElementById('attendingFields');
+    const kommerRadios = document.querySelectorAll('input[name="kommer"]');
+
+    // Replace this URL with your Google Apps Script Web App URL
+    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzBVOImkBuqRMZnE1fT5G6QgQrMEwTkXtzLMzZ5XGjNEr8WMX9ru00Efu0tJKrV812QnA/exec';
+
+    // Show/hide attending fields based on response
+    kommerRadios.forEach(radio => {
+      radio.addEventListener('change', function() {
+        if (this.value === 'ja') {
+          attendingFields.style.display = 'block';
+          document.getElementById('antallPersoner').required = true;
+        } else {
+          attendingFields.style.display = 'none';
+          document.getElementById('antallPersoner').required = false;
+        }
+      });
+    });
+
+    // Form submission
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      
+      if (SCRIPT_URL === 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
+        showMessage('Du må først sette opp Google Apps Script URL. Se instruksjonene for hvordan du gjør dette.', 'error');
+        return;
+      }
+
+      showMessage('Sender RSVP...', 'info');
+      submitBtn.disabled = true;
+      form.classList.add('loading');
+
+      try {
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData.entries());
+        
+        // Add timestamp
+        data.tidspunkt = new Date().toLocaleString('no-NO');
+
+        const response = await fetch(SCRIPT_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+
+        // Since we're using no-cors, we can't read the response
+        // but if we get here without error, it likely succeeded
+        showMessage('Takk for ditt svar! Vi har mottatt din RSVP.', 'success');
+        form.reset();
+        attendingFields.style.display = 'none';
+        
+      } catch (error) {
+        console.error('Error:', error);
+        showMessage('Beklager, det oppstod en feil. Prøv igjen eller ta kontakt med oss direkte.', 'error');
+      } finally {
+        submitBtn.disabled = false;
+        form.classList.remove('loading');
+      }
+    });
+
+    function showMessage(text, type) {
+      messageContainer.innerHTML = `<div class="message ${type}">${text}</div>`;
+      messageContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+  </script>
+</body>
+</html> 
