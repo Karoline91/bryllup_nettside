@@ -20,7 +20,6 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="nav-links">
             <a href="index.html">Hjem</a>
             <a href="program.html">Program</a>
-            <a href="kart.html">Kart</a>
             <a href="onskeliste.html">Ønskeliste</a>
             <a href="talehjelp.html">Talehjelp</a>
             <a href="sporsmal.html">Spørsmål og svar</a>
