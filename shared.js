@@ -4,8 +4,13 @@ document.addEventListener('DOMContentLoaded', function() {
     const header = document.createElement('div');
     header.className = 'top-banner';
     header.innerHTML = `
-        <div class="top-names">Karoline & Torkil</div>
-        <div class="top-date">13. juni 2026, Oslo</div>
+        <div class="header-content">
+            <img src="Paviljong Torshov (1).png" alt="Paviljong Torshov" class="header-paviljong">
+            <div class="header-text">
+                <div class="top-names">Karoline & Torkil</div>
+                <div class="top-date">13. juni 2026, Oslo</div>
+            </div>
+        </div>
     `;
     document.body.insertBefore(header, document.body.firstChild);
 
@@ -21,7 +26,6 @@ document.addEventListener('DOMContentLoaded', function() {
             <a href="index.html">Hjem</a>
             <a href="program.html">Program</a>
             <a href="onskeliste.html">Ønskeliste</a>
-            <a href="talehjelp.html">Talehjelp</a>
             <a href="sporsmal.html">Spørsmål og svar</a>
             <a href="rsvp.html">RSVP</a>
         </div>

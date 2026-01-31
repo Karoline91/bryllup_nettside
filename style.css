@@ -3,14 +3,33 @@
   box-sizing: border-box;
 }
 
-body {
+html, body {
   margin: 0;
+  padding: 0;
   font-family: 'EB Garamond', serif;
   background: #fdfcf7;
   color: #111;
   text-align: center;
   min-height: 100vh;
   overflow-x: hidden;
+  position: relative;
+}
+
+/* Fixed bottom flower background */
+body::after {
+  content: '';
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 80vh;
+  background-image: url('Blomstereng (1).png');
+  background-size: calc(100% + 20px) auto;
+  background-position: -10px calc(100% + 10px);
+  background-repeat: no-repeat;
+  z-index: 1;
+  opacity: 0.8;
+  pointer-events: none;
 }
 
 /* Prevent scrolling when mobile menu is open */
@@ -55,6 +74,30 @@ body.nav-open {
   border-bottom: 1.5px solid #e5e1d8;
   box-shadow: 0 2px 12px rgba(60,60,60,0.04);
   font-size: 1rem;
+  position: relative;
+}
+
+.header-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header-paviljong {
+  max-width: 150px;
+  width: 100%;
+  height: 10vh;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.header-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .top-names {
@@ -167,14 +210,16 @@ nav {
 
 /* Main content */
 main {
-  padding: 0 1rem 2.5em 1rem;
-  background: none;
+  padding: 1rem;
+  background: rgba(253, 252, 247, 0.9);
   margin: 0 auto;
   max-width: 600px;
-  border-radius: 0;
+  border-radius: 12px;
   border: none;
-  box-shadow: none;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.1);
   min-height: 220px;
+  position: relative;
+  z-index: 2;
 }
 
 h1 {
@@ -196,17 +241,6 @@ h1, h2, h3, h4, h5, h6 {
   display: none;
 }
 
-footer {
-  margin-top: 60px;
-  font-size: 1em;
-  color: #111 !important;
-  background: none;
-  padding: 2em 1rem 1em 1rem;
-  border-top: none;
-  border-radius: 0;
-  box-shadow: none;
-  letter-spacing: 0.5px;
-}
 
 .bottom-banner {
   margin-top: 1.5em;
@@ -241,6 +275,8 @@ img {
   max-width: min(350px, 90vw);
   border-radius: 12px;
   box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+  position: relative;
+  z-index: 2;
 }
 
 /* Responsive content containers */
@@ -250,7 +286,12 @@ img {
   max-width: 500px; 
   margin: 2rem auto 0 auto; 
   font-size: 1.1rem;
-  padding: 0 1rem;
+  padding: 1.5rem;
+  background: rgba(253, 252, 247, 0.9);
+  border-radius: 12px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.1);
+  position: relative;
+  z-index: 2;
 }
 
 .wedding-program {
@@ -273,7 +314,23 @@ img {
   }
   
   .top-banner {
-    padding: 2em 0 1.2em 0;
+    padding: 2em 1em 1.2em 1em;
+  }
+  
+  .header-content {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+  }
+  
+  .header-paviljong {
+    max-width: 250px;
+    flex-shrink: 0;
+  }
+  
+  .header-text {
+    align-items: center;
   }
   
   .top-names {
@@ -325,7 +382,7 @@ img {
   }
   
   main {
-    padding: 0 1.5em 2.5em 1.5em;
+    padding: 0 1.5em 0 1.5em;
   }
   
   h1 {
@@ -356,6 +413,14 @@ img {
     font-size: 2em;
   }
   
+  .header-paviljong {
+    max-width: 300px;
+  }
+  
+  .header-content {
+    gap: 3rem;
+  }
+  
   .nav-links {
     gap: 3.5em;
   }
@@ -376,6 +441,10 @@ img {
     font-size: 1.3em;
   }
   
+  .header-paviljong {
+    max-width: 150px;
+  }
+  
   .top-names {
     font-size: 1.6em;
   }
@@ -390,7 +459,7 @@ img {
   }
   
   main {
-    padding: 0 0.75rem 2em 0.75rem;
+    padding: 0 0.75rem 0 0.75rem;
   }
   
   .wedding-program {
@@ -403,9 +472,6 @@ img {
     padding: 0 0.5rem;
   }
   
-  footer {
-    padding: 1.5em 0.5rem 1em 0.5rem;
-  }
   
   /* Mobile-specific adjustments for easter egg game */
   .interactive-map {

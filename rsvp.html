@@ -5,6 +5,7 @@
   <title>Karoline & Torkil – RSVP</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="RSVP til bryllupet til Karoline & Torkil – 13. juni 2026 på Månefisken og Torshovparken paviljongen." />
+  <link rel="icon" type="image/png" href="Paviljong Torshov (1).png">
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
@@ -13,6 +14,7 @@
       max-width: 600px;
       margin: 2rem auto;
       padding: 0 1.5rem;
+      z-index: 2;
     }
 
     .rsvp-form {
@@ -22,6 +24,8 @@
       padding: 2.5rem;
       margin: 2rem 0;
       box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+      z-index: 2;
+      position: relative;
     }
 
     .form-group {
@@ -77,7 +81,8 @@
       cursor: pointer;
     }
 
-    .radio-option input[type="radio"] {
+    .radio-option input[type="radio"],
+    .radio-option input[type="checkbox"] {
       width: auto;
       margin: 0;
     }
@@ -223,24 +228,13 @@
             <span>Ja, jeg kommer!</span>
           </label>
           <label class="radio-option">
-            <input type="radio" name="kommer" value="nei" required>
+            <input type="radio" name="kommer" value="nei" default="checked" required>
             <span>Nei, kan dessverre ikke</span>
           </label>
         </div>
       </div>
 
       <div id="attendingFields" style="display: none;">
-        <div class="form-group">
-          <label for="antallPersoner">Hvor mange personer? <span class="required">*</span></label>
-          <select id="antallPersoner" name="antallPersoner">
-            <option value="">Velg antall</option>
-            <option value="1">1 person</option>
-            <option value="2">2 personer</option>
-            <option value="3">3 personer</option>
-            <option value="4">4 personer</option>
-            <option value="5">5+ personer</option>
-          </select>
-        </div>
 
         <div class="form-group">
           <label for="navnPaFolge">Navn på eventuelle følgesvenner</label>
@@ -251,16 +245,16 @@
           <label>Hvilke deler av bryllupet kommer du på?</label>
           <div class="radio-group">
             <label class="radio-option">
-              <input type="radio" name="delerAvBryllup" value="begge" checked>
-              <span>Både vielse og fest</span>
+              <input type="checkbox" name="delerAvBryllup" value="vielse">
+              <span>Vielse</span>
             </label>
             <label class="radio-option">
-              <input type="radio" name="delerAvBryllup" value="vielse">
-              <span>Kun vielse</span>
+              <input type="checkbox" name="delerAvBryllup" value="middag">
+              <span>Middag</span>
             </label>
             <label class="radio-option">
-              <input type="radio" name="delerAvBryllup" value="fest">
-              <span>Kun fest</span>
+              <input type="checkbox" name="delerAvBryllup" value="fest">
+              <span>Fest</span>
             </label>
           </div>
         </div>
@@ -268,20 +262,6 @@
         <div class="form-group">
           <label for="allergier">Allergier og matpreferanser</label>
           <textarea id="allergier" name="allergier" placeholder="Fortell oss om eventuelle allergier, vegetarianer, veganer, etc."></textarea>
-        </div>
-
-        <div class="form-group">
-          <label for="overnattingshjelp">Trenger du hjelp med overnatting?</label>
-          <div class="radio-group">
-            <label class="radio-option">
-              <input type="radio" name="overnattingshjelp" value="nei" checked>
-              <span>Nei takk</span>
-            </label>
-            <label class="radio-option">
-              <input type="radio" name="overnattingshjelp" value="ja">
-              <span>Ja, gjerne tips!</span>
-            </label>
-          </div>
         </div>
       </div>
 
@@ -298,9 +278,6 @@
     </form>
   </div>
 
-  <footer>
-    © Karoline & Torkil 2026
-  </footer>
 
   <script>
     // RSVP Form Handler
@@ -342,6 +319,12 @@
       try {
         const formData = new FormData(form);
         const data = Object.fromEntries(formData.entries());
+        
+        // Collect all checked checkbox values for "delerAvBryllup"
+        const delerAvBryllupCheckboxes = form.querySelectorAll('input[name="delerAvBryllup"]:checked');
+        if (delerAvBryllupCheckboxes.length > 0) {
+          data.delerAvBryllup = Array.from(delerAvBryllupCheckboxes).map(cb => cb.value).join(', ');
+        }
         
         // Add timestamp
         data.tidspunkt = new Date().toLocaleString('no-NO');
