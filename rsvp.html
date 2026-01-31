@@ -295,10 +295,8 @@
       radio.addEventListener('change', function() {
         if (this.value === 'ja') {
           attendingFields.style.display = 'block';
-          document.getElementById('antallPersoner').required = true;
         } else {
           attendingFields.style.display = 'none';
-          document.getElementById('antallPersoner').required = false;
         }
       });
     });
@@ -340,7 +338,7 @@
 
         // Since we're using no-cors, we can't read the response
         // but if we get here without error, it likely succeeded
-        showMessage('Takk for ditt svar! Vi har mottatt din RSVP.', 'success');
+        showMessage('Takk for ditt svar! Vi har mottatt ditt svar.', 'success');
         form.reset();
         attendingFields.style.display = 'none';
         
