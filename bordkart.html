@@ -7,16 +7,316 @@
   <meta name="description" content="Bordkart for bryllupet til Karoline & Torkil – 13. juni 2026 på Månefisken." />
   <link rel="icon" type="image/png" href="Paviljong Torshov (1).png">
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <style>
+    .bordkart-svg-wrap {
+      background: #FDFCF7;
+      border: 1px solid #e5e1d8;
+      border-radius: 14px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      padding: 0.5rem;
+      margin: 2rem 0;
+      overflow: hidden;
+    }
+    .bordkart-svg-wrap svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    .bordkart-tables {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+    .bordkart-table-card {
+      background: #faf7f2;
+      border-radius: 12px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+      padding: 1.1rem 1.3rem;
+    }
+    .bordkart-table-card h2 {
+      margin: 0 0 0.5rem 0;
+      font-size: 1.15rem;
+      color: #111;
+    }
+    .bordkart-table-card ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      color: #333;
+      line-height: 1.6;
+    }
+  </style>
 </head>
 <body>
   <script src="shared.js"></script>
-  <main style="max-width: 600px; margin: 2rem auto; color: #111;">
+  <main style="max-width: 900px; margin: 2rem auto; padding: 0 1rem; color: #111;">
     <h1 style="text-align:center;">Bordkart</h1>
-    <p style="text-align:center;">Her finner du bordplasseringen for middagen på Månefisken.</p>
-    <div style="background: #faf7f2; border-radius: 14px; box-shadow: 0 2px 12px rgba(0,0,0,0.04); padding: 2.5rem 1.5rem; margin: 2rem 0; text-align: center;">
-      Bordkartet kommer her!
+    <p style="text-align:center;">Her finner du bordplasseringen for middagen på Månefisken. Du kan også <a href="bordkart-a3.pdf">laste ned bordkartet som PDF</a>.</p>
+
+    <div class="bordkart-svg-wrap">
+      <svg viewBox="0 0 420 297" xmlns="http://www.w3.org/2000/svg" font-family="EB Garamond, serif" role="img" aria-label="Bordkart med ti bord">
+        <rect width="420" height="297" fill="#FDFCF7"/>
+
+        <!-- Tittel -->
+        <text x="210.0" y="22" text-anchor="middle" font-size="15" font-weight="500" fill="#111111">Bordkart</text>
+        <line x1="180.0" y1="30" x2="240.0" y2="30" stroke="#111111" stroke-width="0.3"/>
+
+        <!-- Inngang (nede i venstre hjørne) og scene (høyre) -->
+        <g transform="translate(75,280)">
+          <rect x="-27" y="-7" width="54" height="11" fill="none" stroke="#111111" stroke-width="0.4"/>
+          <text x="0" y="0.6" text-anchor="middle" font-size="5.5" letter-spacing="2.5" fill="#111111">INNGANG</text>
+        </g>
+        <g transform="translate(406,138.5) rotate(90)">
+          <rect x="-27" y="-7" width="54" height="11" fill="none" stroke="#111111" stroke-width="0.4"/>
+          <text x="0" y="0.6" text-anchor="middle" font-size="5.5" letter-spacing="2.5" fill="#111111">SCENE</text>
+        </g>
+
+        <circle cx="105" cy="88" r="17" fill="none" stroke="#111111" stroke-width="0.45"/>
+        <circle cx="105" cy="88" r="15.4" fill="none" stroke="#8a8578" stroke-width="0.2"/>
+        <text x="105" y="87" text-anchor="middle" font-size="4" letter-spacing="1.2" fill="#8a8578" style="text-transform:uppercase">Bord</text>
+        <text x="105" y="95.5" text-anchor="middle" font-size="9.5" font-weight="500" fill="#111111">1</text>
+        <text x="105.0" y="63.5" text-anchor="middle" font-size="4.4" fill="#111111">Kristian</text>
+        <text x="121.6" y="70.4" text-anchor="start" font-size="4.4" fill="#111111">Inger</text>
+        <text x="128.5" y="89.4" text-anchor="start" font-size="4.4" fill="#111111">Marius</text>
+        <text x="121.6" y="108.0" text-anchor="start" font-size="4.4" fill="#111111">Live</text>
+        <text x="105.0" y="114.9" text-anchor="middle" font-size="4.4" fill="#111111">Jørn</text>
+        <text x="88.4" y="108.0" text-anchor="end" font-size="4.4" fill="#111111">Marta</text>
+        <text x="81.5" y="89.4" text-anchor="end" font-size="4.4" fill="#111111">Tomas</text>
+        <text x="88.4" y="70.4" text-anchor="end" font-size="4.4" fill="#111111">Liv-Inger</text>
+        <circle cx="210" cy="88" r="17" fill="none" stroke="#111111" stroke-width="0.45"/>
+        <circle cx="210" cy="88" r="15.4" fill="none" stroke="#8a8578" stroke-width="0.2"/>
+        <text x="210" y="87" text-anchor="middle" font-size="4" letter-spacing="1.2" fill="#8a8578" style="text-transform:uppercase">Bord</text>
+        <text x="210" y="95.5" text-anchor="middle" font-size="9.5" font-weight="500" fill="#111111">2</text>
+        <text x="210.0" y="63.5" text-anchor="middle" font-size="4.4" fill="#111111">Karoline</text>
+        <text x="230.4" y="75.2" text-anchor="start" font-size="4.4" fill="#111111">Torkil</text>
+        <text x="230.4" y="103.2" text-anchor="start" font-size="4.4" fill="#111111">Fredrik M</text>
+        <text x="210.0" y="114.9" text-anchor="middle" font-size="4.4" fill="#111111">John</text>
+        <text x="189.6" y="103.2" text-anchor="end" font-size="4.4" fill="#111111">Lisa</text>
+        <text x="189.6" y="75.2" text-anchor="end" font-size="4.4" fill="#111111">Kjersti</text>
+        <circle cx="315" cy="88" r="17" fill="none" stroke="#111111" stroke-width="0.45"/>
+        <circle cx="315" cy="88" r="15.4" fill="none" stroke="#8a8578" stroke-width="0.2"/>
+        <text x="315" y="87" text-anchor="middle" font-size="4" letter-spacing="1.2" fill="#8a8578" style="text-transform:uppercase">Bord</text>
+        <text x="315" y="95.5" text-anchor="middle" font-size="9.5" font-weight="500" fill="#111111">3</text>
+        <text x="315.0" y="63.5" text-anchor="middle" font-size="4.4" fill="#111111">Torunn M</text>
+        <text x="331.6" y="70.4" text-anchor="start" font-size="4.4" fill="#111111">Stine</text>
+        <text x="338.5" y="89.4" text-anchor="start" font-size="4.4" fill="#111111">Randi</text>
+        <text x="331.6" y="108.0" text-anchor="start" font-size="4.4" fill="#111111">Torunn V</text>
+        <text x="315.0" y="114.9" text-anchor="middle" font-size="4.4" fill="#111111">Anna</text>
+        <text x="298.4" y="108.0" text-anchor="end" font-size="4.4" fill="#111111">Andreas H</text>
+        <text x="291.5" y="89.4" text-anchor="end" font-size="4.4" fill="#111111">Hildegunn</text>
+        <text x="298.4" y="70.4" text-anchor="end" font-size="4.4" fill="#111111">Ingvild</text>
+        <circle cx="105" cy="158" r="17" fill="none" stroke="#111111" stroke-width="0.45"/>
+        <circle cx="105" cy="158" r="15.4" fill="none" stroke="#8a8578" stroke-width="0.2"/>
+        <text x="105" y="157" text-anchor="middle" font-size="4" letter-spacing="1.2" fill="#8a8578" style="text-transform:uppercase">Bord</text>
+        <text x="105" y="165.5" text-anchor="middle" font-size="9.5" font-weight="500" fill="#111111">4</text>
+        <text x="105.0" y="133.5" text-anchor="middle" font-size="4.4" fill="#111111">Per</text>
+        <text x="121.6" y="140.4" text-anchor="start" font-size="4.4" fill="#111111">Hanne R</text>
+        <text x="128.5" y="159.4" text-anchor="start" font-size="4.4" fill="#111111">Erling</text>
+        <text x="121.6" y="178.0" text-anchor="start" font-size="4.4" fill="#111111">Mari</text>
+        <text x="105.0" y="184.9" text-anchor="middle" font-size="4.4" fill="#111111">Lars</text>
+        <text x="88.4" y="178.0" text-anchor="end" font-size="4.4" fill="#111111">Øystein</text>
+        <text x="81.5" y="159.4" text-anchor="end" font-size="4.4" fill="#111111">Tonje</text>
+        <text x="88.4" y="140.4" text-anchor="end" font-size="4.4" fill="#111111">Oda</text>
+        <circle cx="210" cy="158" r="17" fill="none" stroke="#111111" stroke-width="0.45"/>
+        <circle cx="210" cy="158" r="15.4" fill="none" stroke="#8a8578" stroke-width="0.2"/>
+        <text x="210" y="157" text-anchor="middle" font-size="4" letter-spacing="1.2" fill="#8a8578" style="text-transform:uppercase">Bord</text>
+        <text x="210" y="165.5" text-anchor="middle" font-size="9.5" font-weight="500" fill="#111111">5</text>
+        <text x="210.0" y="133.5" text-anchor="middle" font-size="4.4" fill="#111111">Fredrik F</text>
+        <text x="228.4" y="142.3" text-anchor="start" font-size="4.4" fill="#111111">Helge</text>
+        <text x="232.9" y="164.6" text-anchor="start" font-size="4.4" fill="#111111">Marian</text>
+        <text x="220.2" y="182.6" text-anchor="start" font-size="4.4" fill="#111111">Daniel</text>
+        <text x="199.8" y="182.6" text-anchor="end" font-size="4.4" fill="#111111">Ingrid L</text>
+        <text x="187.1" y="164.6" text-anchor="end" font-size="4.4" fill="#111111">Rebekka</text>
+        <text x="191.6" y="142.3" text-anchor="end" font-size="4.4" fill="#111111">Ingrid V</text>
+        <circle cx="315" cy="158" r="17" fill="none" stroke="#111111" stroke-width="0.45"/>
+        <circle cx="315" cy="158" r="15.4" fill="none" stroke="#8a8578" stroke-width="0.2"/>
+        <text x="315" y="157" text-anchor="middle" font-size="4" letter-spacing="1.2" fill="#8a8578" style="text-transform:uppercase">Bord</text>
+        <text x="315" y="165.5" text-anchor="middle" font-size="9.5" font-weight="500" fill="#111111">6</text>
+        <text x="315.0" y="133.5" text-anchor="middle" font-size="4.4" fill="#111111">Alf</text>
+        <text x="333.4" y="142.3" text-anchor="start" font-size="4.4" fill="#111111">Kirsten</text>
+        <text x="337.9" y="164.6" text-anchor="start" font-size="4.4" fill="#111111">Ragnhild</text>
+        <text x="325.2" y="182.6" text-anchor="start" font-size="4.4" fill="#111111">Thor Haakon</text>
+        <text x="304.8" y="182.6" text-anchor="end" font-size="4.4" fill="#111111">Tone</text>
+        <text x="292.1" y="164.6" text-anchor="end" font-size="4.4" fill="#111111">Mats</text>
+        <text x="296.6" y="142.3" text-anchor="end" font-size="4.4" fill="#111111">Julie</text>
+        <circle cx="75" cy="227" r="17" fill="none" stroke="#111111" stroke-width="0.45"/>
+        <circle cx="75" cy="227" r="15.4" fill="none" stroke="#8a8578" stroke-width="0.2"/>
+        <text x="75" y="226" text-anchor="middle" font-size="4" letter-spacing="1.2" fill="#8a8578" style="text-transform:uppercase">Bord</text>
+        <text x="75" y="234.5" text-anchor="middle" font-size="9.5" font-weight="500" fill="#111111">7</text>
+        <text x="75.0" y="202.5" text-anchor="middle" font-size="4.4" fill="#111111">Martin</text>
+        <text x="91.6" y="209.4" text-anchor="start" font-size="4.4" fill="#111111">Trude</text>
+        <text x="98.5" y="228.4" text-anchor="start" font-size="4.4" fill="#111111">Thorstein</text>
+        <text x="91.6" y="247.0" text-anchor="start" font-size="4.4" fill="#111111">Alice</text>
+        <text x="75.0" y="253.9" text-anchor="middle" font-size="4.4" fill="#111111">Fanny</text>
+        <text x="58.4" y="247.0" text-anchor="end" font-size="4.4" fill="#111111">Magnus</text>
+        <text x="51.5" y="228.4" text-anchor="end" font-size="4.4" fill="#111111">Steinar</text>
+        <text x="58.4" y="209.4" text-anchor="end" font-size="4.4" fill="#111111">Jon</text>
+        <circle cx="165" cy="227" r="17" fill="none" stroke="#111111" stroke-width="0.45"/>
+        <circle cx="165" cy="227" r="15.4" fill="none" stroke="#8a8578" stroke-width="0.2"/>
+        <text x="165" y="226" text-anchor="middle" font-size="4" letter-spacing="1.2" fill="#8a8578" style="text-transform:uppercase">Bord</text>
+        <text x="165" y="234.5" text-anchor="middle" font-size="9.5" font-weight="500" fill="#111111">8</text>
+        <text x="165.0" y="202.5" text-anchor="middle" font-size="4.4" fill="#111111">Eskil</text>
+        <text x="181.6" y="209.4" text-anchor="start" font-size="4.4" fill="#111111">Celine</text>
+        <text x="188.5" y="228.4" text-anchor="start" font-size="4.4" fill="#111111">Eivor</text>
+        <text x="181.6" y="247.0" text-anchor="start" font-size="4.4" fill="#111111">Fredrik W.</text>
+        <text x="165.0" y="253.9" text-anchor="middle" font-size="4.4" fill="#111111">Brynjar</text>
+        <text x="148.4" y="247.0" text-anchor="end" font-size="4.4" fill="#111111">Therese</text>
+        <text x="141.5" y="228.4" text-anchor="end" font-size="4.4" fill="#111111">Håkon</text>
+        <text x="148.4" y="209.4" text-anchor="end" font-size="4.4" fill="#111111">Karen H</text>
+        <circle cx="255" cy="227" r="17" fill="none" stroke="#111111" stroke-width="0.45"/>
+        <circle cx="255" cy="227" r="15.4" fill="none" stroke="#8a8578" stroke-width="0.2"/>
+        <text x="255" y="226" text-anchor="middle" font-size="4" letter-spacing="1.2" fill="#8a8578" style="text-transform:uppercase">Bord</text>
+        <text x="255" y="234.5" text-anchor="middle" font-size="9.5" font-weight="500" fill="#111111">9</text>
+        <text x="255.0" y="202.5" text-anchor="middle" font-size="4.4" fill="#111111">Ida</text>
+        <text x="273.4" y="211.3" text-anchor="start" font-size="4.4" fill="#111111">Markus</text>
+        <text x="277.9" y="233.6" text-anchor="start" font-size="4.4" fill="#111111">Malin</text>
+        <text x="265.2" y="251.6" text-anchor="start" font-size="4.4" fill="#111111">Andreas K-G</text>
+        <text x="244.8" y="251.6" text-anchor="end" font-size="4.4" fill="#111111">Linn</text>
+        <text x="232.1" y="233.6" text-anchor="end" font-size="4.4" fill="#111111">Julius</text>
+        <text x="236.6" y="211.3" text-anchor="end" font-size="4.4" fill="#111111">Ann Kjersti</text>
+        <circle cx="345" cy="227" r="17" fill="none" stroke="#111111" stroke-width="0.45"/>
+        <circle cx="345" cy="227" r="15.4" fill="none" stroke="#8a8578" stroke-width="0.2"/>
+        <text x="345" y="226" text-anchor="middle" font-size="4" letter-spacing="1.2" fill="#8a8578" style="text-transform:uppercase">Bord</text>
+        <text x="345" y="234.5" text-anchor="middle" font-size="9.5" font-weight="500" fill="#111111">10</text>
+        <text x="345.0" y="202.5" text-anchor="middle" font-size="4.4" fill="#111111">Tobias</text>
+        <text x="363.4" y="211.3" text-anchor="start" font-size="4.4" fill="#111111">Hanne Ø</text>
+        <text x="367.9" y="233.6" text-anchor="start" font-size="4.4" fill="#111111">Kristin</text>
+        <text x="355.2" y="251.6" text-anchor="start" font-size="4.4" fill="#111111">Andreas B</text>
+        <text x="334.8" y="251.6" text-anchor="end" font-size="4.4" fill="#111111">Hanne S</text>
+        <text x="322.1" y="233.6" text-anchor="end" font-size="4.4" fill="#111111">Jens</text>
+        <text x="326.6" y="211.3" text-anchor="end" font-size="4.4" fill="#111111">Karen R.</text>
+      </svg>
+    </div>
+
+    <h2 style="text-align:center; margin-top: 2.5rem;">Hvem sitter hvor?</h2>
+    <div class="bordkart-tables">
+      <div class="bordkart-table-card">
+        <h2>Bord 1</h2>
+        <ul>
+          <li>Kristian</li>
+          <li>Inger</li>
+          <li>Marius</li>
+          <li>Live</li>
+          <li>Jørn</li>
+          <li>Marta</li>
+          <li>Tomas</li>
+          <li>Liv-Inger</li>
+        </ul>
+      </div>
+      <div class="bordkart-table-card">
+        <h2>Bord 2</h2>
+        <ul>
+          <li>Karoline</li>
+          <li>Torkil</li>
+          <li>Fredrik M</li>
+          <li>John</li>
+          <li>Lisa</li>
+          <li>Kjersti</li>
+        </ul>
+      </div>
+      <div class="bordkart-table-card">
+        <h2>Bord 3</h2>
+        <ul>
+          <li>Torunn M</li>
+          <li>Stine</li>
+          <li>Randi</li>
+          <li>Torunn V</li>
+          <li>Anna</li>
+          <li>Andreas H</li>
+          <li>Hildegunn</li>
+          <li>Ingvild</li>
+        </ul>
+      </div>
+      <div class="bordkart-table-card">
+        <h2>Bord 4</h2>
+        <ul>
+          <li>Per</li>
+          <li>Hanne R</li>
+          <li>Erling</li>
+          <li>Mari</li>
+          <li>Lars</li>
+          <li>Øystein</li>
+          <li>Tonje</li>
+          <li>Oda</li>
+        </ul>
+      </div>
+      <div class="bordkart-table-card">
+        <h2>Bord 5</h2>
+        <ul>
+          <li>Fredrik F</li>
+          <li>Helge</li>
+          <li>Marian</li>
+          <li>Daniel</li>
+          <li>Ingrid L</li>
+          <li>Rebekka</li>
+          <li>Ingrid V</li>
+        </ul>
+      </div>
+      <div class="bordkart-table-card">
+        <h2>Bord 6</h2>
+        <ul>
+          <li>Alf</li>
+          <li>Kirsten</li>
+          <li>Ragnhild</li>
+          <li>Thor Haakon</li>
+          <li>Tone</li>
+          <li>Mats</li>
+          <li>Julie</li>
+        </ul>
+      </div>
+      <div class="bordkart-table-card">
+        <h2>Bord 7</h2>
+        <ul>
+          <li>Martin</li>
+          <li>Trude</li>
+          <li>Thorstein</li>
+          <li>Alice</li>
+          <li>Fanny</li>
+          <li>Magnus</li>
+          <li>Steinar</li>
+          <li>Jon</li>
+        </ul>
+      </div>
+      <div class="bordkart-table-card">
+        <h2>Bord 8</h2>
+        <ul>
+          <li>Eskil</li>
+          <li>Celine</li>
+          <li>Eivor</li>
+          <li>Fredrik W.</li>
+          <li>Brynjar</li>
+          <li>Therese</li>
+          <li>Håkon</li>
+          <li>Karen H</li>
+        </ul>
+      </div>
+      <div class="bordkart-table-card">
+        <h2>Bord 9</h2>
+        <ul>
+          <li>Ida</li>
+          <li>Markus</li>
+          <li>Malin</li>
+          <li>Andreas K-G</li>
+          <li>Linn</li>
+          <li>Julius</li>
+          <li>Ann Kjersti</li>
+        </ul>
+      </div>
+      <div class="bordkart-table-card">
+        <h2>Bord 10</h2>
+        <ul>
+          <li>Tobias</li>
+          <li>Hanne Ø</li>
+          <li>Kristin</li>
+          <li>Andreas B</li>
+          <li>Hanne S</li>
+          <li>Jens</li>
+          <li>Karen R.</li>
+        </ul>
+      </div>
     </div>
   </main>
 </body>
